@@ -12,14 +12,11 @@ fn main() {
     let mut output = String::new();
 
     stdin().read_line(&mut input).unwrap();
-
-    let l: usize = input.trim().parse::<usize>().unwrap();
+    input.clear();
+    
     const R: u64 = 31;
     const M: u64 = 1234567891;
-    let mut powers: Vec<u64> = vec![0; l];
-    let mut hash: u64 = 0;
 
-    input.clear();
     stdin().read_line(&mut input).unwrap();
     let hash: u64 = input
         .trim()
