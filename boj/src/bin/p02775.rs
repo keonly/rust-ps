@@ -18,11 +18,11 @@ fn main() {
         .map(|c| c.parse::<usize>().unwrap());
 
     let tc: usize = nums.next().unwrap();
-    for i in 0..tc {
+    for _ in 0..tc {
         let k: usize = nums.next().unwrap();
         let n: usize = nums.next().unwrap();
 
-        write!(output, "{}\n", combination(n + k, k + 1)).unwrap();
+        writeln!(output, "{}", combination(n + k, k + 1)).unwrap();
     }
 
     print!("{}", output);
