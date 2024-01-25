@@ -1,5 +1,5 @@
 use std::fmt::Write;
-use std::io::{stdin, read_to_string};
+use std::io::{read_to_string, stdin};
 
 fn combination(n: usize, k: usize) -> usize {
     if k > n {

@@ -13,7 +13,7 @@ fn main() {
 
     stdin().read_line(&mut input).unwrap();
     input.clear();
-    
+
     const R: u64 = 31;
     const M: u64 = 1234567891;
 
@@ -28,4 +28,3 @@ fn main() {
     write!(output, "{}", hash % M).unwrap();
     print!("{}", output);
 }
-

@@ -3,7 +3,7 @@ use std::io::{stdin, Read};
 
 fn gcd(n1: usize, n2: usize) -> usize {
     if n2 == 0 {
-        n1 
+        n1
     } else {
         gcd(n2, n1 % n2)
     }
