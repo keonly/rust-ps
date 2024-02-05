@@ -13,5 +13,5 @@ fn main() {
     words.dedup();
 
     write!(output, "{}", words.join("\n")).unwrap();
-    print!("{}", output);
+    print!("{output}");
 }

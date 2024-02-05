@@ -21,5 +21,5 @@ fn main() {
         input.clear();
     }
 
-    print!("{}", output);
+    print!("{output}");
 }

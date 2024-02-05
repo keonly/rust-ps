@@ -26,5 +26,5 @@ fn main() {
 
     let (gcd, lcm) = (gcd(nums[0], nums[1]), lcm(nums[0], nums[1]));
     write!(output, "{}\n{}", gcd, lcm).unwrap();
-    print!("{}", output);
+    print!("{output}");
 }

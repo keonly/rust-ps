@@ -26,7 +26,7 @@ fn main() {
     people.sort_by_key(|k| k.0);
 
     people.iter().for_each(|(age, name)| {
-        write!(output, "{age} {name}\n").unwrap();
+        writeln!(output, "{age} {name}").unwrap();
     });
-    print!("{}", output);
+    print!("{output}");
 }

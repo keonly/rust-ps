@@ -17,5 +17,5 @@ fn main() {
         (nums[2] + nums[0] - 2 * nums[1] - 1) / (nums[0] - nums[1])
     )
     .unwrap();
-    print!("{}", output);
+    print!("{output}");
 }

@@ -25,5 +25,5 @@ fn main() {
         writeln!(output, "{}", combination(n + k, k + 1)).unwrap();
     }
 
-    print!("{}", output);
+    print!("{output}");
 }
