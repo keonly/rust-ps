@@ -2,9 +2,9 @@ use std::collections::{HashSet, VecDeque};
 use std::fmt::Write;
 use std::io::{read_to_string, stdin};
 
-fn hide_and_seek(n: isize, k: isize) -> isize {
-    let mut visiting: VecDeque<(isize, isize)> = VecDeque::new();
-    let mut visited: HashSet<isize> = HashSet::new();
+fn hide_and_seek(n: usize, k: usize) -> usize {
+    let mut visiting: VecDeque<(usize, usize)> = VecDeque::new();
+    let mut visited: HashSet<usize> = HashSet::new();
 
     visiting.push_back((n, 0));
 
@@ -12,17 +12,17 @@ fn hide_and_seek(n: isize, k: isize) -> isize {
         if curr_pos == k {
             return curr_step;
         }
+        if visited.contains(&curr_pos) || curr_pos > 200_000 {
+            continue;
+        }
 
         visited.insert(curr_pos);
         for next_pos in [curr_pos - 1, curr_pos + 1, curr_pos * 2] {
-            if visited.contains(&next_pos) || next_pos > 200_000 {
-                continue;
-            }
             visiting.push_back((next_pos, curr_step + 1))
         }
     }
 
-    isize::MAX
+    usize::MAX
 }
 
 fn main() {
@@ -30,7 +30,7 @@ fn main() {
     let mut input = buffer.split_ascii_whitespace();
     let mut output = String::new();
 
-    let [n, k] = [(); 2].map(|_| input.next().unwrap().parse::<isize>().unwrap());
+    let [n, k] = [(); 2].map(|_| input.next().unwrap().parse::<usize>().unwrap());
 
     write!(output, "{}", hide_and_seek(n, k)).unwrap();
     print!("{output}");
