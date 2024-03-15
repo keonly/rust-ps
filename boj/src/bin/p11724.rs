@@ -49,7 +49,7 @@ fn main() {
     let [vertices, edges] = [(); 2].map(|_| dims.next().unwrap().parse::<usize>().unwrap());
     if edges == 0 {
         print!("{vertices}");
-        return
+        return;
     }
 
     let mut graph: Vec<Vec<usize>> = vec![vec![]; vertices];
