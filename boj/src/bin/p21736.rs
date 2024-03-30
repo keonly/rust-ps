@@ -19,27 +19,25 @@ impl Campus {
         let directions: [(isize, isize); 4] = [(0, 1), (0, -1), (1, 0), (-1, 0)];
         let mut count_people = 0;
         visiting.push_back(start_coord);
+        visited.insert(start_coord);
 
         while let Some((curr_row, curr_col)) = visiting.pop_front() {
             for (d_row, d_col) in directions {
                 let (next_row, next_col) = (curr_row as isize + d_row, curr_col as isize + d_col);
                 if self.in_range(next_row, next_col) {
                     let (next_row, next_col) = (next_row as usize, next_col as usize);
-                    match self.map[next_row][next_col] {
-                        'P' => {
-                            if !visited.contains(&(next_row, next_col)) {
-                                visited.insert((next_row, next_col));
+                    if !visited.contains(&(next_row, next_col)) {
+                        visited.insert((next_row, next_col));
+                        let c = self.map[next_row][next_col];
+                        match c {
+                            'X' => {}
+                            _ => {
                                 visiting.push_back((next_row, next_col));
-                                count_people += 1;
+                                if c == 'P' {
+                                    count_people += 1;
+                                }
                             }
                         }
-                        'O' => {
-                            if !visited.contains(&(next_row, next_col)) {
-                                visited.insert((next_row, next_col));
-                                visiting.push_back((next_row, next_col));
-                            }
-                        }
-                        _ => {}
                     }
                 }
             }
